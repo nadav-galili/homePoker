@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Bibs",
+        "image": "https://node.poker-underdog.com/uploads/IMG_20230115_200121-1673805703048.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Vasili",
+        "image": "https://node.poker-underdog.com/uploads/vasil22.webp"
+    },
+    {
+        "id": 3,
+        "name": "koko",
+        "image": "https://node.poker-underdog.com/uploads/koko.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Shikor",
+        "image": "https://node.poker-underdog.com/uploads/16402515756333354919924701512743-1640251760618.png"
+    },
+    {
+        "id": 5,
+        "name": "Zevik",
+        "image": "https://node.poker-underdog.com/uploads/16411518190504784508745249847893-1641151841460.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Diamonds",
+        "image": "https://node.poker-underdog.com/uploads/SAVE_20211223_180950-removebg-preview-1640275949783.png"
+    },
+    {
+        "id": 7,
+        "name": "Dudi",
+        "image": "https://node.poker-underdog.com/uploads/CA4BAFAE-0B85-42FB-A208-57161C86BE81-1641154369404.jpeg"
+    },
+    {
+        "id": 8,
+        "name": "Riko",
+        "image": "https://node.poker-underdog.com/uploads/1611313641528-1641844949763.jpg"
+    }
+]

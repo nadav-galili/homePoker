@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import MyLeagues from "./src/components/myLeagues";
+import MyLeaguesScreen from "./src/screens/MyLeaguesScreen";
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <MyLeagues />
+            <MyLeaguesScreen />
             <StatusBar style="auto" />
         </View>
     );
@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "row",
     },
 });
