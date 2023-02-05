@@ -1,11 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 // import LeaguesScreen from "./src/screens/LeaguesScreen";
 import LeagueStats from "./src/screens/LeagueStats";
+import Navigator from "./src/navigation";
 export default function App() {
     return (
         <View style={styles.container}>
-            <LeagueStats />
+            <Navigator />
+            {/* <LeagueStats /> */}
             <StatusBar style="auto" />
         </View>
     );
