@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-homepoker-staging-151512-authRole",
+      "UnauthRoleArn": "arn:aws:iam::403337806191:role/amplify-homepoker-staging-151512-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::403337806191:role/amplify-homepoker-staging-151512-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-homepoker-staging-151512-deployment",
+      "UnauthRoleName": "amplify-homepoker-staging-151512-unauthRole",
+      "StackName": "amplify-homepoker-staging-151512",
+      "StackId": "arn:aws:cloudformation:eu-central-1:403337806191:stack/amplify-homepoker-staging-151512/e3212c50-a567-11ed-8742-020332c721d2",
+      "AmplifyAppId": "d27vzkyn1kuaze"
+    },
+    "categories": {
+      "auth": {
+        "HomePoker": {}
+      }
+    }
+  }
+}
