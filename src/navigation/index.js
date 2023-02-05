@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LeagueStats from "../screens/LeagueStats";
+import LeagueStats from "../screens/LeagueStatsScreen";
 import LeaguesScreen from "../screens/LeaguesScreen";
 import MainTabNavigator from "./MainTabNavigation";
 

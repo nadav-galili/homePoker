@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import LeagueStats from "../screens/LeagueStats";
+import LeagueStatsScreen from "../screens/LeagueStatsScreen";
 import LeaguesScreen from "../screens/LeaguesScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,13 +17,14 @@ const MainTabNavigator = () => {
             // }}
         >
             <Tab.Screen
-                name="LeaguesScreen"
+                name="Leagues"
                 component={LeaguesScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => <Ionicons name="logo-whatsapp" size={size} color={color} />,
                 }}
             />
-            <Tab.Screen name="LeagueStats" component={LeagueStats} />
+            <Tab.Screen name="LeagueStats" component={LeagueStatsScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
     );
 };

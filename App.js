@@ -4,7 +4,7 @@ import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
 import config from "./src/aws-exports";
 // import LeaguesScreen from "./src/screens/LeaguesScreen";
-import LeagueStats from "./src/screens/LeagueStats";
+import LeagueStats from "./src/screens/LeagueStatsScreen";
 import Navigator from "./src/navigation";
 
 Amplify.configure(config);

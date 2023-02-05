@@ -11,7 +11,8 @@ import league from "../../assets/data/league";
 import PrimaryHeader from "../components/common/PrimaryHeader";
 import MyLeaguesPlayerItem from "../components/MyLeaguesPlayerItem";
 import players from "../../assets/data/players";
-const LeagueStats = () => {
+
+const LeagueStatsScreen = () => {
     const navigation = useNavigation();
     const route = useRoute();
     // use the route to get the leagueId
@@ -67,4 +68,4 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
     },
 });
-export default LeagueStats;
+export default LeagueStatsScreen;
