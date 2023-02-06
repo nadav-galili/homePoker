@@ -1,5 +1,9 @@
+import { useState, useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { API, graphqlOperation } from "aws-amplify";
+import { listUsers } from "../../src/graphql/queries";
+
 import AppButton from "../components/common/AppButton";
 import colors from "../../assets/config/colors";
 import LeagueImage from "../components/common/LeagueImage";
@@ -9,6 +13,14 @@ import players from "../../assets/data/players";
 import SecondaryHeader from "../components/common/SecondaryHeader";
 
 const LeaguesScreen = () => {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        API.graphql(graphqlOperation(listUsers)).then((res) => {
+            console.log(res.data.listUsers.items);
+            setUsers(res.data?.listUsers?.items);
+        });
+    }, []);
     const navigation = useNavigation();
     return (
         <View>
