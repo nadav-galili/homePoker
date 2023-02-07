@@ -17,7 +17,7 @@ const LeaguesScreen = () => {
 
     useEffect(() => {
         API.graphql(graphqlOperation(listUsers)).then((res) => {
-            console.log(res.data.listUsers.items);
+            // console.log(res.data.listUsers.items);
             setUsers(res.data?.listUsers?.items);
         });
     }, []);
