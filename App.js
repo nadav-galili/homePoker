@@ -24,14 +24,12 @@ function App() {
                 return;
             }
 
+            const newUser = {
+                id: authUser.attributes.sub,
+                nickName: authUser.attributes.email,
+            };
             const newUserResponse = await API.graphql(graphqlOperation(createUser, { input: newUser }));
-            //!/1.39
-            // const newUser = {
-            //     id: authUser.attributes.sub,
-            //     name: authUser.username,
-            //     email: authUser.attributes.email,
-            //     imageUri: authUser.attributes.picture,
-            // };
+            console.log("🚀 ~ file: App.js:32 ~ syncUser ~ newUserResponse", newUserResponse);
         };
         syncUser();
     }, []);
