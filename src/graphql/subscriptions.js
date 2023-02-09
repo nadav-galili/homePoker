@@ -6,7 +6,6 @@ export const onCreateGame = /* GraphQL */ `
     onCreateGame(filter: $filter) {
       id
       isOpen
-      gameNumber
       Users {
         items {
           id
@@ -21,14 +20,6 @@ export const onCreateGame = /* GraphQL */ `
         nextToken
         startedAt
       }
-      playerId
-      cashing
-      numOfCashing
-      cashInHand
-      profit
-      gameRank
-      cashInTime
-      cashOutTime
       leagueID
       createdAt
       updatedAt
@@ -43,7 +34,6 @@ export const onUpdateGame = /* GraphQL */ `
     onUpdateGame(filter: $filter) {
       id
       isOpen
-      gameNumber
       Users {
         items {
           id
@@ -58,14 +48,6 @@ export const onUpdateGame = /* GraphQL */ `
         nextToken
         startedAt
       }
-      playerId
-      cashing
-      numOfCashing
-      cashInHand
-      profit
-      gameRank
-      cashInTime
-      cashOutTime
       leagueID
       createdAt
       updatedAt
@@ -80,7 +62,6 @@ export const onDeleteGame = /* GraphQL */ `
     onDeleteGame(filter: $filter) {
       id
       isOpen
-      gameNumber
       Users {
         items {
           id
@@ -95,14 +76,6 @@ export const onDeleteGame = /* GraphQL */ `
         nextToken
         startedAt
       }
-      playerId
-      cashing
-      numOfCashing
-      cashInHand
-      profit
-      gameRank
-      cashInTime
-      cashOutTime
       leagueID
       createdAt
       updatedAt
@@ -136,15 +109,6 @@ export const onCreateLeague = /* GraphQL */ `
         items {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -155,6 +119,7 @@ export const onCreateLeague = /* GraphQL */ `
         nextToken
         startedAt
       }
+      leagueName
       createdAt
       updatedAt
       _version
@@ -187,15 +152,6 @@ export const onUpdateLeague = /* GraphQL */ `
         items {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -206,6 +162,7 @@ export const onUpdateLeague = /* GraphQL */ `
         nextToken
         startedAt
       }
+      leagueName
       createdAt
       updatedAt
       _version
@@ -238,15 +195,6 @@ export const onDeleteLeague = /* GraphQL */ `
         items {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -257,6 +205,7 @@ export const onDeleteLeague = /* GraphQL */ `
         nextToken
         startedAt
       }
+      leagueName
       createdAt
       updatedAt
       _version
@@ -400,19 +349,10 @@ export const onCreateGameUser = /* GraphQL */ `
       game {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -455,19 +395,10 @@ export const onUpdateGameUser = /* GraphQL */ `
       game {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -510,19 +441,10 @@ export const onDeleteGameUser = /* GraphQL */ `
       game {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -576,6 +498,7 @@ export const onCreateLeagueUser = /* GraphQL */ `
           nextToken
           startedAt
         }
+        leagueName
         createdAt
         updatedAt
         _version
@@ -628,6 +551,7 @@ export const onUpdateLeagueUser = /* GraphQL */ `
           nextToken
           startedAt
         }
+        leagueName
         createdAt
         updatedAt
         _version
@@ -680,6 +604,7 @@ export const onDeleteLeagueUser = /* GraphQL */ `
           nextToken
           startedAt
         }
+        leagueName
         createdAt
         updatedAt
         _version

@@ -13,16 +13,7 @@ type EagerGame = {
   };
   readonly id: string;
   readonly isOpen: boolean;
-  readonly gameNumber: number;
   readonly Users?: (GameUser | null)[] | null;
-  readonly playerId: string;
-  readonly cashing: number;
-  readonly numOfCashing: number;
-  readonly cashInHand: number;
-  readonly profit: number;
-  readonly gameRank?: number | null;
-  readonly cashInTime: string;
-  readonly cashOutTime: string;
   readonly leagueID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -35,16 +26,7 @@ type LazyGame = {
   };
   readonly id: string;
   readonly isOpen: boolean;
-  readonly gameNumber: number;
   readonly Users: AsyncCollection<GameUser>;
-  readonly playerId: string;
-  readonly cashing: number;
-  readonly numOfCashing: number;
-  readonly cashInHand: number;
-  readonly profit: number;
-  readonly gameRank?: number | null;
-  readonly cashInTime: string;
-  readonly cashOutTime: string;
   readonly leagueID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -100,6 +82,7 @@ type EagerLeague = {
   readonly image?: string | null;
   readonly leagueNumber: string;
   readonly Games?: (Game | null)[] | null;
+  readonly leagueName: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -114,6 +97,7 @@ type LazyLeague = {
   readonly image?: string | null;
   readonly leagueNumber: string;
   readonly Games: AsyncCollection<Game>;
+  readonly leagueName: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

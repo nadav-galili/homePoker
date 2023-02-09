@@ -1,16 +1,7 @@
 type Game @model @auth(rules: [{allow: public}]) {
   id: ID!
   isOpen: Boolean!
-  gameNumber: Int!
   Users: [User] @manyToMany(relationName: "GameUser")
-  playerId: ID!
-  cashing: Int!
-  numOfCashing: Int!
-  cashInHand: Int!
-  profit: Int!
-  gameRank: Int
-  cashInTime: AWSDateTime!
-  cashOutTime: AWSDateTime!
   leagueID: ID! @index(name: "byLeague")
 }
 
@@ -20,6 +11,7 @@ type League @model @auth(rules: [{allow: public}]) {
   image: String
   leagueNumber: ID!
   Games: [Game] @hasMany(indexName: "byLeague", fields: ["id"])
+  leagueName: String!
 }
 
 type User @model @auth(rules: [{allow: public}]) {
@@ -28,4 +20,4 @@ type User @model @auth(rules: [{allow: public}]) {
   nickName: String!
   leagues: [League] @manyToMany(relationName: "LeagueUser")
   games: [Game] @manyToMany(relationName: "GameUser")
-}
+} 

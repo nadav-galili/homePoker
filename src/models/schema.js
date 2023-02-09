@@ -17,13 +17,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "gameNumber": {
-                    "name": "gameNumber",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "Users": {
                     "name": "Users",
                     "isArray": true,
@@ -39,62 +32,6 @@ export const schema = {
                             "game"
                         ]
                     }
-                },
-                "playerId": {
-                    "name": "playerId",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "cashing": {
-                    "name": "cashing",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "numOfCashing": {
-                    "name": "numOfCashing",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "cashInHand": {
-                    "name": "cashInHand",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "profit": {
-                    "name": "profit",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "gameRank": {
-                    "name": "gameRank",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "cashInTime": {
-                    "name": "cashInTime",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": true,
-                    "attributes": []
-                },
-                "cashOutTime": {
-                    "name": "cashOutTime",
-                    "isArray": false,
-                    "type": "AWSDateTime",
-                    "isRequired": true,
-                    "attributes": []
                 },
                 "leagueID": {
                     "name": "leagueID",
@@ -307,6 +244,13 @@ export const schema = {
                             "leagueID"
                         ]
                     }
+                },
+                "leagueName": {
+                    "name": "leagueName",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -550,5 +494,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "45faf198444771e249c621ad3e1eb9fb"
+    "version": "c496e6a14f1e316f2082f57306bf4a8c"
 };

@@ -18,7 +18,7 @@ function App() {
             const authUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
             // console.log("🚀 ~ file: App.js:17 ~ syncUser ~ authUser", authUser);
             const userData = await API.graphql(graphqlOperation(getUser, { id: authUser.attributes.sub }));
-            console.log("🚀 ~ file: App.js:20 ~ syncUser ~ userData", userData);
+            // console.log("🚀 ~ file: App.js:20 ~ syncUser ~ userData", userData);
             if (userData.data.getUser) {
                 console.log("User is already registered in database");
                 return;

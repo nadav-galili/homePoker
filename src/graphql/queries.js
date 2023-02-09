@@ -6,7 +6,6 @@ export const getGame = /* GraphQL */ `
     getGame(id: $id) {
       id
       isOpen
-      gameNumber
       Users {
         items {
           id
@@ -21,14 +20,6 @@ export const getGame = /* GraphQL */ `
         nextToken
         startedAt
       }
-      playerId
-      cashing
-      numOfCashing
-      cashInHand
-      profit
-      gameRank
-      cashInTime
-      cashOutTime
       leagueID
       createdAt
       updatedAt
@@ -48,19 +39,10 @@ export const listGames = /* GraphQL */ `
       items {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -89,19 +71,10 @@ export const syncGames = /* GraphQL */ `
       items {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -132,19 +105,10 @@ export const gamesByLeagueID = /* GraphQL */ `
       items {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -181,15 +145,6 @@ export const getLeague = /* GraphQL */ `
         items {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -200,6 +155,7 @@ export const getLeague = /* GraphQL */ `
         nextToken
         startedAt
       }
+      leagueName
       createdAt
       updatedAt
       _version
@@ -227,6 +183,7 @@ export const listLeagues = /* GraphQL */ `
           nextToken
           startedAt
         }
+        leagueName
         createdAt
         updatedAt
         _version
@@ -263,6 +220,7 @@ export const syncLeagues = /* GraphQL */ `
           nextToken
           startedAt
         }
+        leagueName
         createdAt
         updatedAt
         _version
@@ -391,19 +349,10 @@ export const getGameUser = /* GraphQL */ `
       game {
         id
         isOpen
-        gameNumber
         Users {
           nextToken
           startedAt
         }
-        playerId
-        cashing
-        numOfCashing
-        cashInHand
-        profit
-        gameRank
-        cashInTime
-        cashOutTime
         leagueID
         createdAt
         updatedAt
@@ -451,15 +400,6 @@ export const listGameUsers = /* GraphQL */ `
         game {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -508,15 +448,6 @@ export const syncGameUsers = /* GraphQL */ `
         game {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -567,15 +498,6 @@ export const gameUsersByGameId = /* GraphQL */ `
         game {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -626,15 +548,6 @@ export const gameUsersByUserId = /* GraphQL */ `
         game {
           id
           isOpen
-          gameNumber
-          playerId
-          cashing
-          numOfCashing
-          cashInHand
-          profit
-          gameRank
-          cashInTime
-          cashOutTime
           leagueID
           createdAt
           updatedAt
@@ -681,6 +594,7 @@ export const getLeagueUser = /* GraphQL */ `
           nextToken
           startedAt
         }
+        leagueName
         createdAt
         updatedAt
         _version
@@ -728,6 +642,7 @@ export const listLeagueUsers = /* GraphQL */ `
           id
           image
           leagueNumber
+          leagueName
           createdAt
           updatedAt
           _version
@@ -776,6 +691,7 @@ export const syncLeagueUsers = /* GraphQL */ `
           id
           image
           leagueNumber
+          leagueName
           createdAt
           updatedAt
           _version
@@ -826,6 +742,7 @@ export const leagueUsersByLeagueId = /* GraphQL */ `
           id
           image
           leagueNumber
+          leagueName
           createdAt
           updatedAt
           _version
@@ -876,6 +793,7 @@ export const leagueUsersByUserId = /* GraphQL */ `
           id
           image
           leagueNumber
+          leagueName
           createdAt
           updatedAt
           _version
