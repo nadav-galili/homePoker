@@ -1,30 +1,6 @@
 {
-  "api": {
-    "HomePoker": {
-      "dependsOn": [],
-      "output": {
-        "authConfig": {
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ],
-          "defaultAuthentication": {
-            "apiKeyConfig": {
-              "apiKeyExpirationDate": "2023-03-11T11:34:38.038Z",
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
-            },
-            "authenticationType": "API_KEY"
-          }
-        }
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "AppSync"
-    }
-  },
   "auth": {
-    "HomePoker": {
+    "PokerDonkey": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -36,11 +12,12 @@
           "passwordPolicyCharacters": [],
           "passwordPolicyMinLength": 6
         },
-        "signupAttributes": [],
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
         ],
+        "socialProviders": [],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]

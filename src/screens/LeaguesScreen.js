@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { API, graphqlOperation, Auth } from "aws-amplify";
-import { leagueUsersByUserId, getUser } from "../../src/graphql/queries";
+// import { leagueUsersByUserId, getUser } from "../../src/graphql/queries";
 
 import PrimaryHeader from "../components/common/PrimaryHeader";
 import AppButton from "../components/common/AppButton";
@@ -21,47 +21,48 @@ const LeaguesScreen = () => {
     const [user, setUser] = useState([]);
     // console.log("🚀 ~ file: LeaguesScreen.js:18 ~ LeaguesScreen ~ users", users);
 
-    useEffect(() => {
-        const getUsersLeagues = async () => {
-            const authUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
-            const userData = await API.graphql(graphqlOperation(getUser, { id: authUser.attributes.sub }));
-            console.log("🚀 ~ file: LeaguesScreen.js:28 ~ getUsersLeagues ~ userData", typeof userData.data.getUser.id);
-            // console.log("🚀 ~ file: LeaguesScreen.js:28 ~ getUsersLeagues ~ userData", userData.data.getUser.id);
-            // setUser(userData.data.getUser);
-            const query = `query MyQuery {
-                leagueUsersByUserId(userId: "${userData.data.getUser.id}") {
-                  items {
-                    league {
-                      leagueName
-                      leagueNumber
-                      image
-                      id
-                      Users {
-                        items {
-                          user {
-                            nickName
-                            image
-                            id
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              `;
-            const getLeaguesData = await API.graphql(graphqlOperation(query));
+    // useEffect(() => {
+    //     const getUsersLeagues = async () => {
+    //         const authUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
+    //         const userData = await API.graphql(graphqlOperation(getUser, { id: authUser.attributes.sub }));
+    //         console.log("🚀 ~ file: LeaguesScreen.js:28 ~ getUsersLeagues ~ userData", typeof userData.data.getUser.id);
+    //         // console.log("🚀 ~ file: LeaguesScreen.js:28 ~ getUsersLeagues ~ userData", userData.data.getUser.id);
+    //         // setUser(userData.data.getUser);
+    //         const query = `query MyQuery {
+    //             leagueUsersByUserId(userId: "${userData.data.getUser.id}") {
+    //               items {
+    //                 league {
+    //                   leagueName
+    //                   leagueNumber
+    //                   image
+    //                   id
+    //                   Users {
+    //                     items {
+    //                       user {
+    //                         nickName
+    //                         image
+    //                         id
+    //                       }
+    //                     }
+    //                   }
+    //                 }
+    //               }
+    //             }
+    //           }
+    //           `;
+    //         const getLeaguesData = await API.graphql(graphqlOperation(query));
 
-            setLeagues(getLeaguesData.data.leagueUsersByUserId.items);
-            console.log("xxx", leagues[0].league.id);
-        };
-        getUsersLeagues();
-    }, []);
+    //         setLeagues(getLeaguesData.data.leagueUsersByUserId.items);
+    //         console.log("xxx", leagues[0].league.id);
+    //     };
+    //     getUsersLeagues();
+    // }, []);
     const navigation = useNavigation();
 
     return (
         <View>
-            <PrimaryHeader text="My Leagues" color={colors.primaryColor} size={30} />
+            <Text>Leagues Screen</Text>
+            {/* <PrimaryHeader text="My Leagues" color={colors.primaryColor} size={30} />
             <View style={styles.buttonsContainer}>
                 <AppButton buttonText="+Create a new League" color="blue" width={140} height={40} />
                 <AppButton buttonText="Join friends league" color="purple" width={140} height={40} />
@@ -76,7 +77,7 @@ const LeaguesScreen = () => {
                 ))
             ) : (
                 <Text>No leagues found</Text>
-            )}
+            )} */}
 
             {/* <LeagueImage uri={league.image} width={80} height={80} />
             <SecondaryHeader text={league.leagueName} color={colors.primaryTextColor} size={20} />

@@ -3,8 +3,8 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "homepo9c0ce2b8",
-    "userPoolName": "HomePoker",
+    "resourceNameTruncated": "pokerd5b6442e2",
+    "userPoolName": "PokerDonkey",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -19,21 +19,21 @@
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 6,
     "passwordPolicyCharacters": [],
-    "requiredAttributes": [],
+    "requiredAttributes": [
+      "email",
+      "name"
+    ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "HomePo9c0ce2b8_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "PokerD5b6442e2_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "9c0ce2b8",
-    "resourceName": "HomePoker",
+    "sharedId": "5b6442e2",
+    "resourceName": "PokerDonkey",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
-    "usernameAttributes": [
-      "email"
-    ],
     "useDefault": "manual",
     "userPoolGroups": false,
     "userPoolGroupList": [],
@@ -41,6 +41,21 @@
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "hostedUI": false
   }
 }
