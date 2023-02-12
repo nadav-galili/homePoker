@@ -5,14 +5,16 @@ import CustomButton from "../../components/CustomButton";
 import SocialSignInButtons from "../../components/SocialSignInButtons";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useForm, Controller } from "react-hook-form";
 
 const ConfirmEmailScreen = () => {
-    const [code, setCode] = useState("");
+    const { control, handleSubmit } = useForm();
     const navigation = useNavigation();
 
     const { height } = useWindowDimensions();
 
-    const onConfirmPressed = () => {
+    const onConfirmPressed = (data) => {
+        console.log("🚀 ~ file: ConfirmEmailScreen.js:18 ~ onConfirmPressed ~ data", data);
         navigation.navigate("Home");
     };
 
@@ -26,9 +28,16 @@ const ConfirmEmailScreen = () => {
             <View style={styles.root}>
                 <Text style={styles.title}>Confirm your email</Text>
                 {/* <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" /> */}
-                <CustomInput placeholder="Enter your confirmation code" value={code} setValue={setCode} />
+                <CustomInput
+                    placeholder="Enter your confirmation code"
+                    name="code"
+                    control={control}
+                    rules={{
+                        required: "Confirmation code is required",
+                    }}
+                />
 
-                <CustomButton text="Confirm" onPress={onConfirmPressed} />
+                <CustomButton text="Confirm" onPress={handleSubmit(onConfirmPressed)} />
                 <CustomButton text="Resend code" onPress={onResendPressed} type="SECONDARY" />
                 <CustomButton text="Back to sign in" onPress={onSignInPressed} type="TERTIARY" />
             </View>

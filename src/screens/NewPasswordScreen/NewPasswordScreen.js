@@ -5,10 +5,10 @@ import CustomButton from "../../components/CustomButton";
 import SocialSignInButtons from "../../components/SocialSignInButtons";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useForm, Controller } from "react-hook-form";
 
 const NewPasswordScreen = () => {
-    const [code, setCode] = useState("");
-    const [newpassword, setNewPassword] = useState("");
+    const { control, handleSubmit } = useForm();
     const navigation = useNavigation();
 
     const { height } = useWindowDimensions();
@@ -17,7 +17,8 @@ const NewPasswordScreen = () => {
         navigation.navigate("SignIn");
     };
 
-    const onSubmitPressed = () => {
+    const onSubmitPressed = (data) => {
+        console.log("🚀 ~ file: NewPasswordScreen.js:17 ~ onSignInPressed ~ data", data);
         navigation.navigate("Home");
     };
 
@@ -26,9 +27,26 @@ const NewPasswordScreen = () => {
             <View style={styles.root}>
                 <Text style={styles.title}>Reset your password</Text>
                 {/* <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" /> */}
-                <CustomInput placeholder="Code" value={code} setValue={setCode} />
-                <CustomInput placeholder="Enter your new password" value={newpassword} setValue={setNewPassword} />
-                <CustomButton text="Submit" onPress={onSubmitPressed} />
+                <CustomInput
+                    placeholder="Code"
+                    name="code"
+                    control={control}
+                    rules={{ required: "Code is required" }}
+                />
+                <CustomInput
+                    placeholder="Enter your new password"
+                    name="password"
+                    control={control}
+                    rules={{
+                        required: "Password is required",
+                        minLength: {
+                            value: 6,
+                            message: "Password must be at least 6 characters",
+                        },
+                    }}
+                    secureTextEntry
+                />
+                <CustomButton text="Submit" onPress={handleSubmit(onSubmitPressed)} />
                 <CustomButton text="Back to sign in" onPress={onSignInPressed} type="TERTIARY" />
             </View>
         </ScrollView>

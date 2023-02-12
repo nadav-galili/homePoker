@@ -5,9 +5,10 @@ import CustomButton from "../../components/CustomButton";
 import SocialSignInButtons from "../../components/SocialSignInButtons";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useForm } from "react-hook-form";
 
 const ForgotPasswordScreen = () => {
-    const [username, setUsername] = useState("");
+    const { control, handleSubmit } = useForm();
     const navigation = useNavigation();
 
     const { height } = useWindowDimensions();
@@ -16,7 +17,8 @@ const ForgotPasswordScreen = () => {
         navigation.navigate("SignIn");
     };
 
-    const onSendPressed = () => {
+    const onSendPressed = (data) => {
+        console.log("🚀 ~ file: ForgotPasswordScreen.js:21 ~ onSendPressed ~ data", data);
         navigation.navigate("NewPassword");
     };
 
@@ -25,8 +27,15 @@ const ForgotPasswordScreen = () => {
             <View style={styles.root}>
                 <Text style={styles.title}>Reset your password</Text>
                 {/* <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" /> */}
-                <CustomInput placeholder="UserName" value={username} setValue={setUsername} />
-                <CustomButton text="Send" onPress={onSendPressed} />
+                <CustomInput
+                    placeholder="UserName"
+                    name="username"
+                    control={control}
+                    rules={{
+                        required: "Username is required",
+                    }}
+                />
+                <CustomButton text="Send" onPress={handleSubmit(onSendPressed)} />
                 <CustomButton text="Back to sign in" onPress={onSignInPressed} type="TERTIARY" />
             </View>
         </ScrollView>

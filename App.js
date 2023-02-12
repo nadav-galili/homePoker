@@ -1,6 +1,6 @@
 import awsconfig from "./src/aws-exports";
 import { Amplify, Auth, API } from "aws-amplify";
-import { withAuthenticator } from "aws-amplify-react-native";
+import { AmplifyTheme } from "aws-amplify-react-native";
 // import { getUser } from "./src/graphql/queries";
 // import { createUser } from "./src/graphql/mutations";
 import { StatusBar } from "expo-status-bar";
@@ -13,6 +13,8 @@ import config from "./src/aws-exports";
 Amplify.configure(config);
 
 const App = () => {
+    // Auth.signOut();
+
     // useEffect(() => {
     //     const syncUser = async () => {
     //         const authUser = await Auth.currentAuthenticatedUser({ bypassCache: true });
@@ -92,6 +94,12 @@ const signUpConfig = {
         },
     ],
 };
-
-export default withAuthenticator(App, { signUpConfig });
-// export default withAuthenticator(App);
+const customTheme = {
+    ...AmplifyTheme,
+    button: {
+        ...AmplifyTheme.button,
+        backgroundColor: "blue",
+    },
+};
+// export default withAuthenticator(App, { signUpConfig, theme: customTheme });
+export default App;
