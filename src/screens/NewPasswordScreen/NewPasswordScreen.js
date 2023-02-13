@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView } from "react-native";
+import { Alert, View, Text, Image, StyleSheet, useWindowDimensions, ScrollView } from "react-native";
 import Logo from "../../../assets/images/newIcon.jpeg";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
@@ -6,6 +6,7 @@ import SocialSignInButtons from "../../components/SocialSignInButtons";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
+import { Auth } from "aws-amplify";
 
 const NewPasswordScreen = () => {
     const { control, handleSubmit } = useForm();
@@ -17,9 +18,13 @@ const NewPasswordScreen = () => {
         navigation.navigate("SignIn");
     };
 
-    const onSubmitPressed = (data) => {
-        console.log("🚀 ~ file: NewPasswordScreen.js:17 ~ onSignInPressed ~ data", data);
-        navigation.navigate("Home");
+    const onSubmitPressed = async (data) => {
+        try {
+            await Auth.forgotPasswordSubmit(data.username, data.code, data.password);
+            navigation.navigate("SignIn");
+        } catch (error) {
+            Alert.alert("Oops..", error.message);
+        }
     };
 
     return (
@@ -27,6 +32,12 @@ const NewPasswordScreen = () => {
             <View style={styles.root}>
                 <Text style={styles.title}>Reset your password</Text>
                 {/* <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" /> */}
+                <CustomInput
+                    placeholder="Username"
+                    name="username"
+                    control={control}
+                    rules={{ required: "username is required" }}
+                />
                 <CustomInput
                     placeholder="Code"
                     name="code"
