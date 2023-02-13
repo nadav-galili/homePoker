@@ -1,4 +1,6 @@
-import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView } from "react-native";
+import { Alert, View, Text, StyleSheet, useWindowDimensions, ScrollView } from "react-native";
+import { Auth } from "aws-amplify";
+
 import Logo from "../../../assets/images/newIcon.jpeg";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
@@ -15,8 +17,19 @@ const SignUpScreen = () => {
 
     const { height } = useWindowDimensions();
 
-    const onRegisterPressed = () => {
-        navigation.navigate("ConfirmEmail");
+    const onRegisterPressed = async (data) => {
+        const { name, email, password, username } = data;
+        console.log("🚀 ~ file: SignUpScreen.js:27 ~ onRegisterPressed ~ data", data);
+        try {
+            await Auth.signUp({
+                username,
+                password,
+                attributes: { email, name },
+            });
+            navigation.navigate("ConfirmEmail", { username });
+        } catch (e) {
+            Alert.alert("Oops..", e.message);
+        }
     };
 
     const onSignInPressed = () => {
@@ -29,7 +42,23 @@ const SignUpScreen = () => {
                 <Text style={styles.title}>Create an account</Text>
                 {/* <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" /> */}
                 <CustomInput
-                    name="Username"
+                    name="name"
+                    control={control}
+                    placeholder="name"
+                    rules={{
+                        required: "name is required",
+                        minLength: {
+                            value: 3,
+                            message: "name must be at least 3 characters",
+                        },
+                        maxLength: {
+                            value: 24,
+                            message: "name must be at most 24 characters",
+                        },
+                    }}
+                />
+                <CustomInput
+                    name="username"
                     control={control}
                     placeholder="Username"
                     rules={{

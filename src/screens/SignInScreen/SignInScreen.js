@@ -9,8 +9,6 @@ import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 
 const SignInScreen = () => {
-    // const [username, setUsername] = useState("");
-    // const [password, setPassword] = useState("");
     const { height } = useWindowDimensions();
     const navigation = useNavigation();
     const {
@@ -21,15 +19,15 @@ const SignInScreen = () => {
     const [loading, setLoading] = useState(false);
 
     const onSigninPressed = async (data) => {
-        console.log("🚀 ~ file: SignInScreen.js:20 ~ onSigninPressed ~ data", data);
-        console.log("ee", errors);
+        if (loading) return;
+        setLoading(true);
         try {
-            //ADD the data to to the sign in
-            const response = await Auth.signIn(username, password);
+            const response = await Auth.signIn(data.username, data.password);
             // navigation.navigate("Home");
         } catch (e) {
             Alert.alert("Oops..", e.message);
         }
+        setLoading(false);
     };
     const onForgotPasswordPressed = () => {
         navigation.navigate("ForgotPassword");
@@ -61,7 +59,7 @@ const SignInScreen = () => {
                         minLength: { value: 6, message: "Password must be at least 6 characters" },
                     }}
                 />
-                <CustomButton text="Sign In" onPress={handleSubmit(onSigninPressed)} />
+                <CustomButton text={loading ? "Loading..." : "Sign In"} onPress={handleSubmit(onSigninPressed)} />
                 <CustomButton text="Forgot password?" onPress={onForgotPasswordPressed} type="TERTIARY" />
                 <SocialSignInButtons />
                 <CustomButton text="Dont have an account? create one" onPress={onSignUpPressed} type="TERTIARY" />
