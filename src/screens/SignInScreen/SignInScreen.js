@@ -4,13 +4,14 @@ import Logo from "../../../assets/images/newIcon.jpeg";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 import SocialSignInButtons from "../../components/SocialSignInButtons";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 
 const SignInScreen = () => {
     const { height } = useWindowDimensions();
     const navigation = useNavigation();
+
     const {
         control,
         handleSubmit,
@@ -42,7 +43,6 @@ const SignInScreen = () => {
             <View style={styles.root}>
                 <Image source={Logo} style={[styles.logo, { height: height * 0.3 }]} resizeMode="contain" />
 
-                <TextInput placeholder={"password"} />
                 <CustomInput
                     placeholder="username"
                     name="username"
