@@ -19,7 +19,6 @@ const SignUpScreen = () => {
 
     const onRegisterPressed = async (data) => {
         const { name, email, password, username } = data;
-        console.log("🚀 ~ file: SignUpScreen.js:27 ~ onRegisterPressed ~ data", data);
         try {
             await Auth.signUp({
                 username,

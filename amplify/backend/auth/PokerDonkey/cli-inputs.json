@@ -34,7 +34,7 @@
     "resourceName": "PokerDonkey",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
-    "useDefault": "manual",
+    "useDefault": "defaultSocial",
     "userPoolGroups": false,
     "userPoolGroupList": [],
     "adminQueries": false,
@@ -55,13 +55,12 @@
     "breakCircularDependency": true,
     "dependsOn": [],
     "hostedUI": true,
-    "hostedUIDomainName": "pokerdonkeyc7917819-c7917819",
+    "hostedUIDomainName": "pokerdonkeyebd9d966-ebd9d966",
     "authProvidersUserPool": [
       "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"name\":\"name\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"exp://192.168.1.24:19000/\"],\"LogoutURLs\":[\"exp://192.168.1.24:19000/\"]}",
-    "authProviders": [],
-    "thirdPartyAuth": false
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"exp://localhost:19000/--/\"],\"LogoutURLs\":[\"exp://localhost:19000/--/\"]}",
+    "authProviders": []
   }
 }

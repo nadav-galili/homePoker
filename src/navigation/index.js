@@ -34,9 +34,9 @@ const Navigator = () => {
             if (data.payload.event === "signIn" || data.payload.event === "signOut") {
                 checkUser();
             }
-            Hub.listen("auth", listener);
-            return () => Hub.remove("auth", listener);
         };
+        Hub.listen("auth", listener);
+        return () => Hub.listen("auth", listener);
     }, []);
 
     if (user === undefined) {

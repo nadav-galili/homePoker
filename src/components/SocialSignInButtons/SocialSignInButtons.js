@@ -1,12 +1,19 @@
 import { View, Text } from "react-native";
 import CustomButton from "../CustomButton";
-import React, { useState, useCallback } from "react";
-import { Auth } from "aws-amplify";
+import React, { useState, useEffect } from "react";
+import { Auth, Amplify } from "aws-amplify";
 
 const SocialSignInButtons = () => {
-    const onSigninGoogle = useCallback(() => {
-        Auth.federatedSignIn({ provider: "Google" });
-    }, []);
+    const onSigninGoogle = async () => {
+        try {
+            const g = await Auth.federatedSignIn({ provider: "Google" });
+            console.log("🚀 ~ file: SocialSignInButtons.js:11 ~ onSigninGoogle ~ g", g);
+
+            // console.log("🚀 ~ file: SocialSignInButtons.js:10 ~ onSigninGoogle ~ g", g);
+        } catch (error) {
+            console.log("error signing in", error);
+        }
+    };
 
     return (
         <>

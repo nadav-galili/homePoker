@@ -2,7 +2,7 @@
     "expo": {
         "name": "homePoker",
         "slug": "homePoker",
-        "scheme": "exp://192.168.1.24:19000/",
+        "scheme": "homePoker",
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
